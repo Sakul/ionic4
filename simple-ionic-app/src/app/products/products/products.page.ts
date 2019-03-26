@@ -6,14 +6,14 @@ import { ProductService } from 'src/app/services/product.service';
   templateUrl: './products.page.html',
   styleUrls: ['./products.page.scss'],
 })
-export class ProductsPage implements OnInit {
+export class ProductsPage {
 
   private products: any[];
 
   constructor(private productSvc: ProductService) {
   }
 
-  ngOnInit(): void {
+  ionViewDidEnter(): void {
     this.products = this.productSvc.getAllProducts();
   }
 

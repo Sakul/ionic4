@@ -5,7 +5,7 @@ import { pipeBind1 } from '@angular/core/src/render3';
   providedIn: 'root'
 })
 export class ProductService {
-  
+
   private products: any[] = [
     {
       Id: "p1",
@@ -29,5 +29,9 @@ export class ProductService {
 
   public getProductById(productId: string) {
     return { ...this.products.find(it => it.Id == productId) };
+  }
+
+  public deleteProductById(productId: string) {
+    this.products = this.products.filter(it => it.Id != productId);
   }
 }
