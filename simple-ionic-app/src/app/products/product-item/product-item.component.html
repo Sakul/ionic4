@@ -1,0 +1,6 @@
+<ion-item [routerLink]="['/products', productItem.Id]">
+  <ion-avatar slot="start">
+    <ion-img [src]="productItem.ImageUrl"></ion-img>
+  </ion-avatar>
+  <ion-label>{{ productItem.Name }}</ion-label>
+</ion-item>
