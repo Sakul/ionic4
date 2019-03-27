@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { HomePage } from "./home/home.page";
 
 const routes: Routes = [
   { path: '', redirectTo: 'products', pathMatch: 'full' },
@@ -16,6 +17,11 @@ const routes: Routes = [
       }
     ]
   },
+  
+  { path: "home", loadChildren: "./home/home.module#HomePageModule", pathMatch: "full" },
+  { path: "route1/route2/route3", redirectTo: "home", pathMatch: "full" }, // MUST match all (.../route1/route2/route3)
+  { path: "route1/route2/", redirectTo: "home", pathMatch: "prefix" }, // Prefix with ().../route1/route2/...)
+  { path: "*", redirectTo:"home" }
 ];
 
 @NgModule({
